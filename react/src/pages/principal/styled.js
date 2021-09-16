@@ -90,6 +90,26 @@ const Bloco1 = styled.div`
         resize: none;
     }
 
+    .btn {
+        margin-top: 86px;
+    }
+
+    .btn button {
+        background-color: #119FDC;
+        color: white;
+        font-family: Roboto;
+        font-size: 12px;
+        border: transparent;
+        border-radius: 50px;
+        padding: 10px 30px;
+        cursor: pointer;
+        margin-left: 30px;
+    }
+
+    button:hover {
+        background-color: #6CC3DF;
+    }
+
     input { height: 28px; border-radius: 5px; background: #FFFFFF; border: 1px solid #A8A8A8;}
 `;
 
