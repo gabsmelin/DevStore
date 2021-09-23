@@ -1,6 +1,6 @@
 import Axios from 'axios';
 const api = Axios.create({
-    baseURL: 'http://localhost:3032'
+    baseURL: 'https://deevstoree.herokuapp.com'
 })
 
 export default class Api {
