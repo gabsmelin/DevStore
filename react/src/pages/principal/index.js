@@ -20,7 +20,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Container, Parteprincipal, Bloco1, Bloco2 } from './styled'
 
 import Api from '../../service/api';
-const api = new Api;
+const api = new Api();
  
 export default function PagPrincipal() {
 
@@ -45,7 +45,7 @@ export default function PagPrincipal() {
   async function inserir() {
     loading.current.continuousStart();
 
-    if(idalterado == 0) {
+    if(idalterado === 0) {
       let r = await api.Inserir(nome, precode, categoria, precopor, avaliacao, estoque, imagem, descricao);
       
       if(r.erro) {
@@ -142,7 +142,7 @@ export default function PagPrincipal() {
                   <Bloco1>
                     <div className="titulo">
                         <div className="barra"><img src={BarraT} alt="" /></div>
-                        <div className="texto1">{ idalterado == 0 ? "Novo Produto" : "Alterando Produto"}</div>
+                        <div className="texto1">{ idalterado === 0 ? "Novo Produto" : "Alterando Produto"}</div>
                     </div>
 
                     <div className="inputs">
@@ -169,7 +169,7 @@ export default function PagPrincipal() {
                         <div className="linha-d">
                             <div className="texto">Descrição:</div>
                             <div className="text">  <textarea type="text" value={descricao} onChange={e => setDescricao(e.target.value)}></textarea></div>
-                            <div className="btn" onClick={inserir}><button>{ idalterado == 0 ? "Cadastrar" : "Alterar"}</button></div>
+                            <div className="btn" onClick={inserir}><button>{ idalterado === 0 ? "Cadastrar" : "Alterar"}</button></div>
                         </div>
                     </div>
                   </Bloco1>
@@ -195,7 +195,7 @@ export default function PagPrincipal() {
                           </thead>
                           <tbody>
                           {produtos.map((item, i) =>
-                            <tr className={i % 2 == 0 ? "alternado" : ""}>
+                            <tr className={i % 2 === 0 ? "alternado" : ""}>
                               <td><img src={item.img_produto} alt="" style={{width: '40px', height: '40px'}}/></td>
                               <td> {item.id_produto} </td>
                               <td title={ item.nm_produto != null && item.nm_produto.length > 12 ? item.nm_produto : null }> { item.nm_produto != null && item.nm_produto.length >= 15 ? item.nm_produto.substr(0, 15) + '...' : item.nm_produto } </td>
